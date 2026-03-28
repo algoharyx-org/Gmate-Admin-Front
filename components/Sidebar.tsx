@@ -24,19 +24,19 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
   return (
     <>
       <aside
-        className={`border-sidebar-border bg-sidebar fixed inset-y-0 left-0 z-50 flex h-screen w-72 flex-col justify-between border-r transition-transform duration-300 lg:relative lg:translate-x-0 ${
+        className={`border-border bg-card fixed inset-y-0 left-0 z-50 flex h-screen w-72 flex-col justify-between border-r transition-transform duration-300 lg:relative lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <button
           onClick={onClose}
-          className="hover:bg-inline-background text-muted-foreground hover:text-foreground absolute top-4 right-4 rounded-lg p-2 lg:hidden"
+          className="hover:bg-primary text-primary hover:text-foreground absolute top-4 right-4 rounded-lg p-2 lg:hidden"
           aria-label="Close sidebar"
         >
           <X size={20} />
         </button>
 
-        <div className="border-sidebar-border flex items-center gap-3 border-b p-4 sm:p-6">
+        <div className="border-border flex items-center gap-3 border-b p-4 sm:p-6">
           <div className="h-10 w-10 shrink-0 rounded-full sm:h-12 sm:w-12">
             <Image
               src={
@@ -52,7 +52,7 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
             <p className="text-primary truncate text-sm font-semibold sm:text-base lg:text-lg">
               GMATE
             </p>
-            <p className="text-inline-primary truncate text-xs font-medium">
+            <p className="text-primary/80 truncate text-xs font-medium">
               Workspace
             </p>
           </div>
@@ -63,8 +63,8 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
             href="/dashboard"
             className={
               pathname === "/dashboard"
-                ? "bg-inline-background text-inline-primary before:bg-inline-primary relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
-                : "text-muted-foreground hover:bg-inline-background relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
+                ? "bg-primary/10 text-primary before:bg-primary relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
+                : "text-muted-foreground hover:bg-primary/10 relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
             }
           >
             <LayoutDashboard className="shrink-0" size={20} />
@@ -73,9 +73,9 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
           <Link
             href="/dashboard/users"
             className={
-              pathname === "/dashboard/users"
-                ? "bg-inline-background text-inline-primary before:bg-inline-primary relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
-                : "text-muted-foreground hover:bg-inline-background relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
+              pathname.startsWith("/dashboard/users")
+                ? "bg-primary/10 text-primary before:bg-primary relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
+                : "text-muted-foreground hover:bg-primary/10 relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
             }
           >
             <CheckSquare className="shrink-0" size={20} />
@@ -84,22 +84,22 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
           <Link
             href="/dashboard/index"
             className={
-              pathname === "/dashboard/index"
-                ? "bg-inline-background text-inline-primary before:bg-inline-primary relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
-                : "text-muted-foreground hover:bg-inline-background relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
+              pathname.startsWith("/dashboard/index")
+                ? "bg-primary/10 text-primary before:bg-primary relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
+                : "text-muted-foreground hover:bg-primary/10 relative inline-flex items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
             }
           >
             <FolderKanban className="shrink-0" size={20} />
             <span className="truncate">Index</span>
           </Link>
         </nav>
-        <div className="p-4 sm:p-6">
+        <div className="p-4 sm:p-6 mb-4">
           <Link
             href="/dashboard/profile"
             className={
-              pathname === "/dashboard/profile"
-                ? "bg-inline-background text-inline-primary before:bg-inline-primary relative inline-flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
-                : "text-muted-foreground hover:bg-inline-background relative inline-flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
+              pathname.startsWith("/dashboard/profile")
+                ? "bg-primary/10 text-primary before:bg-primary relative inline-flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-semibold transition-colors before:absolute before:inset-0 before:top-0 before:left-0 before:block before:h-full before:w-1 before:rounded-l-md sm:px-4 sm:py-3 sm:before:w-2"
+                : "text-muted-foreground hover:bg-primary/10 relative inline-flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-start text-sm font-medium transition-colors sm:px-4 sm:py-3"
             }
           >
             <UserCircle className="shrink-0" size={20} />

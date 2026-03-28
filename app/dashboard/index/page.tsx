@@ -8,6 +8,7 @@ import { Index as IndexType } from "@/lib/types";
 import { IndexFilters } from "@/components/IndexFilters";
 import { IndexGrid } from "@/components/IndexGrid";
 import { IndexPagination } from "@/components/IndexPagination";
+import toast from "react-hot-toast";
 
 export default function Index() {
   const [indexes, setIndexes] = useState<IndexType[]>([]);
@@ -36,7 +37,7 @@ export default function Index() {
     if (statusFilter !== "all") params.read = statusFilter === "read";
 
     getIndex(params)
-      .then((res: any) => {
+      .then((res: {contacts: IndexType[], metadata: {totalPages: number}, totalPages: number, length: number}) => {
         const fetchedIndexes = res?.contacts || [];
         setIndexes(Array.isArray(fetchedIndexes) ? fetchedIndexes : []);
         
@@ -118,6 +119,7 @@ export default function Index() {
       } else {
         fetchIndexes();
       }
+      toast.success("Contact deleted successfully");
     } catch (error) {
       console.error("Failed to delete contact:", error);
     }

@@ -50,7 +50,7 @@ export default function Users() {
     if (statusFilter !== "all") params.active = statusFilter === "active";
 
     getAllUsers(params)
-      .then((res: any) => {
+      .then((res: {users: User[], metadata: {totalPages: number}, totalPages: number, length: number}) => {
         const fetchedUsers = res?.users || res || [];
         setUsers(Array.isArray(fetchedUsers) ? fetchedUsers : []);
         if (res?.metadata?.totalPages) {
