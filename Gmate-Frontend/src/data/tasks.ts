@@ -1,0 +1,66 @@
+import type { Task, TaskStatus } from "@/types/project";
+
+export { type TaskStatus };
+
+export const tasks: Task[] = [
+  {
+    _id: "1",
+    title: "Project Research",
+    description: "Collect requirements and define clear milestones for the sprint.",
+    status: "important",
+    tag: "URGENT",
+    dueDate: "2025-10-11",
+    project: "1",
+    priority: "urgent",
+  },
+  {
+    _id: "2",
+    title: "Design System Update",
+    description: "Review dashboard cards and refine responsive behavior.",
+    status: "in-progress",
+    tag: "IN PROGRESS",
+    dueDate: "2025-10-12",
+    project: "1",
+    priority: "high",
+  },
+  {
+    _id: "3",
+    title: "Client Meeting",
+    description: "Walk through the latest GMATE LMS prototype with stakeholders.",
+    status: "upcoming",
+    tag: "MEETING",
+    dueDate: "2025-10-13",
+    project: "2",
+    priority: "medium",
+  },
+  {
+    _id: "4",
+    title: "Weekly Sync",
+    description: "Align on course roadmap, blockers and next actions.",
+    status: "upcoming",
+    tag: "TEAM",
+    dueDate: "2025-10-14",
+    project: "2",
+    priority: "low",
+  },
+  {
+    _id: "5",
+    title: "Fix Bug #104",
+    description: "Resolve layout issues on the student dashboard grid view.",
+    status: "important",
+    tag: "BUG",
+    dueDate: "2025-10-15",
+    project: "1",
+    priority: "urgent",
+  },
+  {
+    _id: "6",
+    title: "API Integration",
+    description: "Connect progress tracking endpoints with the frontend.",
+    status: "completed",
+    tag: "BACKEND",
+    dueDate: "2025-10-16",
+    project: "3",
+    priority: "medium",
+  },
+];
