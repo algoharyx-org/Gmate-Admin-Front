@@ -59,7 +59,7 @@ export default function Profile() {
       </div>
 
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-        <div className="h-32 w-full bg-gradient-to-r from-primary/40 to-primary/10 sm:h-40"></div>
+        <div className="h-32 w-full bg-linear-to-r from-primary/40 to-primary/10 sm:h-40"></div>
         <div className="px-6 pb-8 sm:px-8">
           <div className="-mt-16 sm:-mt-20 mb-6 flex flex-col sm:flex-row gap-6 sm:items-end">
             <div className="relative h-32 w-32 sm:h-40 sm:w-40 shrink-0 overflow-hidden rounded-full border-4 border-card bg-muted shadow-lg">

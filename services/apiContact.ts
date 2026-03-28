@@ -10,6 +10,16 @@ export const getIndex = async (params: Record<string, string | number | boolean>
   }
 };
 
+export const getUnreadContacts = async () => {
+  try {
+    const res = await api.get("/contact/unread");
+    return res.data.data;
+  } catch (error) {
+    console.log("ERROR", error);
+    throw error;
+  }
+};
+
 export const markContactRead = async (id: string) => {
   try {
     await api.put(`/contact/${id}`);

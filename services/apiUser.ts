@@ -10,6 +10,16 @@ export const getAllUsers = async (params: Record<string, string | number | boole
   }
 };
 
+export const getActiveUsers = async () => {
+  try {
+    const response = await api.get(`/users/active`);
+    return response.data.data;
+  } catch (error) {
+    console.error("Get active users failed:", error);
+    throw error;
+  }
+}
+
 export const deleteUser = async (id: string) => {
   try {
     const response = await api.delete(`/users/${id}`);
@@ -106,6 +116,26 @@ export const changePassword = async ({
       newPassword,
       confirmNewPassword,
     });
+    return res.data.data;
+  } catch (error) {
+    console.log("ERROR", error);
+    throw error;
+  }
+}
+
+export const getAllProjects = async () => {
+  try {
+    const res = await api.get("/projects");
+    return res.data.data;
+  } catch (error) {
+    console.log("ERROR", error);
+    throw error;
+  }
+}
+
+export const getCompletedProjects = async () => {
+  try {
+    const res = await api.get("/projects/complete");
     return res.data.data;
   } catch (error) {
     console.log("ERROR", error);
