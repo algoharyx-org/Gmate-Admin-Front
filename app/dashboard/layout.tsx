@@ -5,6 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import { initSocketEvents } from "@/lib/socket-events";
 import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
+import { useAuthStore } from "@/store/authStore";
 
 export default function Layout({
   children,
@@ -12,10 +13,12 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const fetchSession = useAuthStore((state) => state.fetchSession);
 
   useEffect(() => {
+    fetchSession();
     initSocketEvents();
-  }, []);
+  }, [fetchSession]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {

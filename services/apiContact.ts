@@ -1,9 +1,19 @@
 import api from '@/api/axios';
 
-export const getIndex = async () => {
+export const getIndex = async (params: Record<string, string | number | boolean>) => {
   try {
-    const res = await api.get("/contact");
-    return res.data;
+    const res = await api.get("/contact", {params});
+    return res.data.data;
+  } catch (error) {
+    console.log("ERROR", error);
+    throw error;
+  }
+};
+
+export const getUnreadContacts = async () => {
+  try {
+    const res = await api.get("/contact/unread");
+    return res.data.data;
   } catch (error) {
     console.log("ERROR", error);
     throw error;
