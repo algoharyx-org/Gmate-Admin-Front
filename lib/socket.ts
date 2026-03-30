@@ -5,7 +5,7 @@ let socket: Socket | null = null;
 
 export const getSocket = (): Socket => {
   if (!socket) {
-    socket = io('http://localhost:4000', {
+    socket = io(process.env.NEXT_PUBLIC_API_URL, {
       auth: {
         token: Cookies.get('accessToken'),
       },

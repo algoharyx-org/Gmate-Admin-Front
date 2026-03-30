@@ -136,7 +136,7 @@ export const getAllProjects = async () => {
 export const getCompletedProjects = async () => {
   try {
     const res = await api.get("/projects/complete");
-    return res.data.data;
+    return res.data.length;
   } catch (error) {
     console.log("ERROR", error);
     throw error;

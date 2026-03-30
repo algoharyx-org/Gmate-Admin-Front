@@ -50,7 +50,7 @@ export default function Dashboard() {
             totalMessages: totalMessagesRes?.length || 0,
             unreadMessages: unreadMessagesRes?.length || 0,
             totalProjects: totalProjectsRes?.length || 0,
-            completedProjects: completedProjectsRes?.length || 0,
+            completedProjects: completedProjectsRes || 0,
           });
         }
       } catch (error) {
