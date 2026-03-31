@@ -1,0 +1,13 @@
+{
+  "name": "gmate-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run admin\"",
+    "backend": "cd Gmate-Backend && npm run dev",
+    "frontend": "cd Gmate-Frontend && npm run dev",
+    "admin": "cd Gmate-Admin-Front && npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
